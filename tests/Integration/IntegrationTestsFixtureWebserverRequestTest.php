@@ -19,7 +19,9 @@ class IntegrationTestsFixtureWebserverRequestTest extends AbstractFixtureWebserv
             'persisted-query',
             'persisted-query-by-post',
             'persisted-query-passing-params'
-                => 'graphql-query/latest-posts-for-mobile-app-2',
+                => 'graphql-query/latest-posts-for-mobile-app/',
+            'persisted-query-with-api-hierarchy'
+                => 'graphql-query/website/home-posts-widget/',
             default => parent::getEndpoint($dataName),
         };
     }
@@ -27,11 +29,8 @@ class IntegrationTestsFixtureWebserverRequestTest extends AbstractFixtureWebserv
     protected function getEntryMethod(string $dataName): string
     {
         return match ($dataName) {
-            'persisted-query',
-            'persisted-query-passing-params'
-                => 'GET',
-            default
-                => parent::getEntryMethod($dataName),
+            'persisted-query-by-post' => 'POST',
+            default => 'GET',
         };
     }
 
@@ -42,7 +41,7 @@ class IntegrationTestsFixtureWebserverRequestTest extends AbstractFixtureWebserv
     {
         return match ($dataName) {
             'persisted-query-passing-params' => [
-                'limit' => 2,
+                'limit' => 3,
             ],
             default => parent::getParams($dataName),
         };
