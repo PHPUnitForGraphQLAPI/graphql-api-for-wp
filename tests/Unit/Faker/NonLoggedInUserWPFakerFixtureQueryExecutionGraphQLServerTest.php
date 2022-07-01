@@ -6,14 +6,14 @@ namespace PHPUnitForGraphQLAPI\GraphQLAPI\Unit\Faker;
 
 use PHPUnitForGraphQLAPI\WPFakerSchema\Unit\AbstractWPFakerFixtureQueryExecutionGraphQLServerTest;
 
-class UserLoginWPFakerFixtureQueryExecutionGraphQLServerTest extends AbstractWPFakerFixtureQueryExecutionGraphQLServerTest
+class NonLoggedInUserWPFakerFixtureQueryExecutionGraphQLServerTest extends AbstractWPFakerFixtureQueryExecutionGraphQLServerTest
 {
     /**
      * Directory under the fixture files are placed
      */
     protected function getFixtureFolder(): string
     {
-        return __DIR__ . '/fixture-user-login';
+        return __DIR__ . '/fixture-non-logged-in-user';
     }
 
     /**
@@ -43,7 +43,7 @@ class UserLoginWPFakerFixtureQueryExecutionGraphQLServerTest extends AbstractWPF
             ...parent::getGraphQLServerModuleClassConfiguration(),
             ...[
                 \PoPCMSSchema\CommentMutations\Module::class => [
-                    \PoPCMSSchema\CommentMutations\Environment::MUST_USER_BE_LOGGED_IN_TO_ADD_COMMENT => false,
+                    \PoPCMSSchema\CommentMutations\Environment::MUST_USER_BE_LOGGED_IN_TO_ADD_COMMENT => true,
                 ],
             ]
         ];
