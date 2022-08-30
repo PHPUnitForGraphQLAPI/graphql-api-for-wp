@@ -1,26 +1,4 @@
 {
-    "errors": [
-        {
-            "message": "There is no field 'email' on type 'User'",
-            "locations": [
-                {
-                    "line": 9,
-                    "column": 5
-                }
-            ],
-            "extensions": {
-                "path": [
-                    "email",
-                    "users(pagination: {limit: $limit}) { ... }",
-                    "query MyQuery($limit: Int) { ... }"
-                ],
-                "type": "User",
-                "field": "email",
-                "code": "gql@5.3.1",
-                "specifiedBy": "https:\/\/spec.graphql.org\/draft\/#sec-Field-Selections"
-            }
-        }
-    ],
     "data": {
         "users": [
             {
@@ -28,35 +6,35 @@
                 "url": "https:\/\/graphql-api.lndo.site\/author\/editor\/",
                 "displayName": "Editor Smith",
                 "websiteURL": "",
-                "email": null
+                "email": "editor@test.com"
             },
             {
                 "id": 5,
                 "url": "https:\/\/graphql-api.lndo.site\/author\/author\/",
                 "displayName": "Author Marquez",
                 "websiteURL": "",
-                "email": null
+                "email": "author@test.com"
             },
             {
                 "id": 4,
                 "url": "https:\/\/graphql-api.lndo.site\/author\/contributor\/",
                 "displayName": "Contributor Johnson",
                 "websiteURL": "",
-                "email": null
+                "email": "contributor@test.com"
             },
             {
                 "id": 3,
                 "url": "https:\/\/graphql-api.lndo.site\/author\/subscriber\/",
                 "displayName": "Subscriber Bennett",
                 "websiteURL": "",
-                "email": null
+                "email": "subscriber@test.com"
             },
             {
                 "id": 2,
                 "url": "https:\/\/graphql-api.lndo.site\/author\/blogger\/",
                 "displayName": "Blogger Davenport",
                 "websiteURL": "",
-                "email": null
+                "email": "blogger@test.com"
             }
         ]
     }
