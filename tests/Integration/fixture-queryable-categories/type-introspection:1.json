@@ -1,13 +1,5 @@
 {
     "data": {
-        "customPosts": [
-            {
-                "id": 2,
-                "title": "Sample Page",
-                "customPostType": "page",
-                "__typename": "GenericCustomPost"
-            }
-        ],
         "__schema": {
             "types": [
                 {
@@ -122,6 +114,11 @@
                 },
                 {
                     "name": "MutationRoot",
+                    "enumValues": null,
+                    "possibleTypes": null
+                },
+                {
+                    "name": "Page",
                     "enumValues": null,
                     "possibleTypes": null
                 },
@@ -383,6 +380,9 @@
                             "name": "GenericCustomPost"
                         },
                         {
+                            "name": "Page"
+                        },
+                        {
                             "name": "Post"
                         }
                     ]
@@ -405,6 +405,9 @@
                     "possibleTypes": [
                         {
                             "name": "GenericCustomPost"
+                        },
+                        {
+                            "name": "Page"
                         },
                         {
                             "name": "Post"
@@ -512,6 +515,9 @@
                             "name": "MutationRoot"
                         },
                         {
+                            "name": "Page"
+                        },
+                        {
                             "name": "Post"
                         },
                         {
@@ -590,6 +596,9 @@
                             "name": "Media"
                         },
                         {
+                            "name": "Page"
+                        },
+                        {
                             "name": "Post"
                         },
                         {
@@ -608,6 +617,9 @@
                     "enumValues": null,
                     "possibleTypes": [
                         {
+                            "name": "Page"
+                        },
+                        {
                             "name": "Post"
                         }
                     ]
@@ -618,6 +630,9 @@
                     "possibleTypes": [
                         {
                             "name": "GenericCustomPost"
+                        },
+                        {
+                            "name": "Page"
                         },
                         {
                             "name": "Post"
@@ -639,6 +654,9 @@
                         },
                         {
                             "name": "GenericTag"
+                        },
+                        {
+                            "name": "Page"
                         },
                         {
                             "name": "Post"
@@ -790,6 +808,21 @@
                     "possibleTypes": null
                 },
                 {
+                    "name": "PageByInput",
+                    "enumValues": null,
+                    "possibleTypes": null
+                },
+                {
+                    "name": "PageChildrenFilterInput",
+                    "enumValues": null,
+                    "possibleTypes": null
+                },
+                {
+                    "name": "PagePaginationInput",
+                    "enumValues": null,
+                    "possibleTypes": null
+                },
+                {
                     "name": "PostByInput",
                     "enumValues": null,
                     "possibleTypes": null
@@ -871,6 +904,11 @@
                 },
                 {
                     "name": "RootMyPostsFilterInput",
+                    "enumValues": null,
+                    "possibleTypes": null
+                },
+                {
+                    "name": "RootPagesFilterInput",
                     "enumValues": null,
                     "possibleTypes": null
                 },
@@ -1539,9 +1577,6 @@
                     "enumValues": null,
                     "possibleTypes": [
                         {
-                            "name": "GenericCategory"
-                        },
-                        {
                             "name": "PostCategory"
                         }
                     ]
@@ -1552,6 +1587,9 @@
                     "possibleTypes": [
                         {
                             "name": "GenericCustomPost"
+                        },
+                        {
+                            "name": "Page"
                         },
                         {
                             "name": "Post"
