@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PHPUnitForGraphQLAPI\GraphQLAPI\Integration;
 
 use GraphQLAPI\GraphQLAPI\Services\Blocks\AbstractSchemaConfigCustomizableConfigurationBlock;
-use GraphQLAPI\GraphQLAPI\Services\Blocks\SchemaConfigSchemaCustomPostsBlock;
+use GraphQLAPI\GraphQLAPI\Services\Blocks\SchemaConfigSchemaCustomPostMetaBlock;
 use PHPUnitForGraphQLAPI\GraphQLAPI\Integration\AbstractModifyCPTBlockAttributesFixtureEndpointWebserverRequestTestCase;
 
-class QueryableCustomPostsOnSchemaConfigurationCPTBlockAttributesFixtureEndpointWebserverRequestTest extends AbstractModifyCPTBlockAttributesFixtureEndpointWebserverRequestTestCase
+class AllowedCustomPostMetaOnSchemaConfigurationCPTBlockAttributesFixtureEndpointWebserverRequestTest extends AbstractModifyCPTBlockAttributesFixtureEndpointWebserverRequestTestCase
 {
-    use QueryableCustomPostsFixtureEndpointWebserverRequestTestTrait;
+    use AllowedCustomPostMetaFixtureEndpointWebserverRequestTestTrait;
 
     public const MOBILE_APP_SCHEMA_CONFIGURATION_ID = 193;
 
@@ -31,7 +31,7 @@ class QueryableCustomPostsOnSchemaConfigurationCPTBlockAttributesFixtureEndpoint
     {
         return [
             AbstractSchemaConfigCustomizableConfigurationBlock::ATTRIBUTE_NAME_CUSTOMIZE_CONFIGURATION => 'true',
-            SchemaConfigSchemaCustomPostsBlock::ATTRIBUTE_NAME_INCLUDED_CUSTOM_POST_TYPES => $this->getIncludedCustomPostTypesNewValue(),
+            SchemaConfigSchemaCustomPostMetaBlock::ATTRIBUTE_NAME_ENTRIES => $this->getAllowedCustomPostMetaKeyEntriesNewValue(),
         ];
     }
 
@@ -42,6 +42,6 @@ class QueryableCustomPostsOnSchemaConfigurationCPTBlockAttributesFixtureEndpoint
 
     protected function getBlockNamespacedID(string $dataName): string
     {
-        return 'graphql-api/schema-config-schema-customposts';
+        return 'graphql-api/schema-config-schema-custompost-meta';
     }
 }
