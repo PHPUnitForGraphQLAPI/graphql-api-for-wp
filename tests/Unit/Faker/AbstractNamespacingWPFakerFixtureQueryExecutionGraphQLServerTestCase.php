@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace PHPUnitForGraphQLAPI\GraphQLAPI\Unit\Faker;
 
 use GraphQLByPoP\GraphQLServer\Unit\EnabledDisabledFixtureQueryExecutionGraphQLServerTestCaseTrait;
-use PHPUnitForGraphQLAPI\WPFakerSchema\Unit\AbstractWPFakerFixtureQueryExecutionGraphQLServerTest;
+use PHPUnitForGraphQLAPI\WPFakerSchema\Unit\AbstractWPFakerFixtureQueryExecutionGraphQLServerTestCase;
 use PoP\Root\Module\ModuleInterface;
 
-abstract class AbstractEnabledDisabledUsePayloadableCommentMutationsWPFakerFixtureQueryExecutionGraphQLServerTest extends AbstractWPFakerFixtureQueryExecutionGraphQLServerTest
+abstract class AbstractNamespacingWPFakerFixtureQueryExecutionGraphQLServerTestCase extends AbstractWPFakerFixtureQueryExecutionGraphQLServerTestCase
 {
     use EnabledDisabledFixtureQueryExecutionGraphQLServerTestCaseTrait;
 
+    /**
+     * Directory under the fixture files are placed
+     */
     protected function getFixtureFolder(): string
     {
-        return __DIR__ . '/fixture-use-payloadable-comment-mutations-or-not';
+        return __DIR__ . '/fixture-namespacing';
     }
 
     /**
@@ -26,11 +29,7 @@ abstract class AbstractEnabledDisabledUsePayloadableCommentMutationsWPFakerFixtu
             ...parent::getGraphQLServerModuleClasses(),
             ...[
                 \PoPWPSchema\Users\Module::class,
-                \PoPCMSSchema\UserStateMutationsWP\Module::class,
                 \PoPWPSchema\Posts\Module::class,
-                \PoPCMSSchema\CustomPostMutationsWP\Module::class,
-                \PoPCMSSchema\PostMutations\Module::class,
-                \PoPCMSSchema\CommentMutationsWP\Module::class,
             ]
         ];
     }
@@ -43,9 +42,9 @@ abstract class AbstractEnabledDisabledUsePayloadableCommentMutationsWPFakerFixtu
         return [
             ...parent::getGraphQLServerModuleClassConfiguration(),
             ...[
-                \PoPCMSSchema\CommentMutations\Module::class => [
-                    \PoPCMSSchema\CommentMutations\Environment::MUST_USER_BE_LOGGED_IN_TO_ADD_COMMENT => true,
-                    \PoPCMSSchema\CommentMutations\Environment::USE_PAYLOADABLE_COMMENT_MUTATIONS => static::isEnabled(),
+                \PoP\ComponentModel\Module::class => [
+                    \PoP\ComponentModel\Environment::NAMESPACE_TYPES_AND_INTERFACES => static::isEnabled(),
+                    \PoP\ComponentModel\Environment::EXPOSE_CORE_FUNCTIONALITY_GLOBAL_FIELDS => true,
                 ],
             ]
         ];
